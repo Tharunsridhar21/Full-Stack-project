@@ -1,0 +1,40 @@
+<div *ngIf="timeEntriesByEmployeeAndMonth.length > 0">
+  <h2 class="heading">Time Entries (Total Time in Months)</h2>
+
+  <!-- Table displaying time entries -->
+  <table border="1" cellspacing="0" cellpadding="8">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Total Time in Month (Hours)</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of timeEntriesByEmployeeAndMonth" [ngClass]="{'highlight-low-hours': entry.TotalHours < 100}">
+        <td>{{ entry.EmployeeName || 'Unknown Employee' }}</td>
+        <td>{{ entry.TotalHours }} hrs</td>
+        <td><a href="#" (click)="editEntry(entry)">Edit</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pie Chart displaying the total time worked by employees -->
+  <div style="width: 50%; margin: auto; margin-top: 20px;">
+    <h2 class="heading">Total Time Worked by Employees</h2>
+    <ngx-charts-pie-chart
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="chartData"
+      [legend]="showLegend"
+      [explodeSlices]="explodeSlices"
+      [labels]="showLabels"
+      [doughnut]="doughnut"
+      [legendTitle]="'Employees'">
+    </ngx-charts-pie-chart>
+  </div>
+</div>
+
+<div *ngIf="timeEntriesByEmployeeAndMonth.length === 0">
+  <p>No time entries available.</p>
+</div>

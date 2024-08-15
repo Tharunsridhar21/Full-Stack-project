@@ -1,0 +1,34 @@
+.heading {
+    text-align: center;
+    margin-bottom: 20px; /* Adds space between heading and content */
+}
+
+table {
+    width: 50%; /* Adjust width to be smaller */
+    margin: 0 auto; /* Center the table horizontally */
+    border-collapse: collapse; /* Ensures borders between cells are merged */
+}
+
+th, td {
+    padding: 8px; /* Adjust padding for a compact look */
+    text-align: left;
+    border: 1px solid #161515; /* Border around each cell */
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style for rows with less than 100 hours */
+.highlight-low-hours {
+    background-color: #ffcccc; /* Light red background */
+}
